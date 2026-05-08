@@ -1,0 +1,63 @@
+body{
+
+    margin:0;
+
+    overflow:hidden;
+
+    background:black;
+
+    font-family:Arial, sans-serif;
+
+}
+
+/* INFO PANEL */
+
+#info{
+
+    position:absolute;
+
+    top:10px;
+
+    left:10px;
+
+    color:white;
+
+    background:rgba(0,0,0,0.6);
+
+    padding:15px;
+
+    border-radius:10px;
+
+    z-index:10;
+
+}
+
+#info h2{
+
+    margin:0 0 10px 0;
+
+    font-size:22px;
+
+}
+
+#info p{
+
+    margin:5px 0;
+
+    font-size:15px;
+
+}
+
+canvas{
+
+    display:block;
+
+}
+
+/* VR BUTTON */
+
+#VRButton{
+
+    bottom:20px !important;
+
+}

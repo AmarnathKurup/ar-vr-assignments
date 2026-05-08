@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>WebXR Earth-Moon Orbital System</title>
+
+    <!-- A-FRAME -->
+
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+
+</head>
+
+<body style="margin:0; overflow:hidden;">
+
+<a-scene background="color:black">
+
+
+    <!-- ASSETS-->
+
+    <a-assets>
+
+        <img
+
+            id="earthTexture"
+
+            src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@master/examples/textures/planets/earth_atmos_2048.jpg"
+
+        >
+
+        <img
+
+            id="moonTexture"
+
+            src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@master/examples/textures/planets/moon_1024.jpg"
+
+        >
+
+        <img
+
+            id="sunTexture"
+
+            src="./sun.jpg"
+
+        >
+
+        <img
+
+            id="spaceTexture"
+
+            src="./space.jpg"
+
+        >
+
+    </a-assets>
+
+
+    <!-- SPACE BACKGROUND-->
+
+    <a-sky
+
+        src="#spaceTexture"
+        repeat="10 10"
+
+    >
+
+    </a-sky>
+
+
+    <!-- CAMERA-->
+
+    <a-entity
+
+        camera
+
+        look-controls
+
+        wasd-controls="acceleration:100"
+
+        position="5 3 8"
+
+    >
+
+    </a-entity>
+
+
+
+         <!-- SUN SYSTEM -->
+    <a-entity
+
+        position="8 4 -8"
+
+    >
+
+
+        <!-- SUN -->
+
+        <a-sphere
+            radius="1.8"
+            src="#sunTexture"
+            material="
+                emissive:#ffaa00;
+                emissiveIntensity:0.5;
+                shader:standard;
+            "
+            animation="
+                property: rotation;
+                from: 0 0 0;
+                to: 0 360 0;
+                loop: true;
+                dur: 30000;
+                easing: linear;
+            ">
+        </a-sphere>
+
+
+        <!-- SUN LIGHT -->
+
+        <a-light
+
+            type="point"
+
+            color="#fff4aa"
+
+            intensity="4"
+
+            distance="60"
+
+            decay="1"
+
+        >
+
+        </a-light>
+
+    </a-entity>
+
+
+    <!-- AMBIENT LIGHT-->
+
+    <a-light
+
+        type="ambient"
+
+        color="#222222"
+
+        intensity="0.6"
+
+    >
+
+    </a-light>
+
+
+    <!-- TITLE-->
+
+    <a-text
+
+        value="Earth - Moon Orbital System"
+
+        position="0 6 -8"
+
+        align="center"
+
+        color="#00ffff"
+
+        width="18"
+
+        side="double"
+
+    >
+
+    </a-text>
+
+
+    <!-- EARTH SYSTEM-->
+
+    <a-entity
+
+        id="earth-system"
+
+        position="0 2 -8"
+
+        rotation="0 0 23.5"
+
+    >
+
+
+        <!-- ORBIT RING -->
+
+        <a-ring
+
+            radius-inner="3.95"
+
+            radius-outer="4.05"
+
+            rotation="-90 0 0"
+
+            color="#666666"
+
+            material="side:double"
+
+        >
+
+        </a-ring>
+
+
+        <!-- EARTH ROTATION-->
+
+        <a-entity
+
+            animation="
+                property: rotation;
+                from: 0 0 0;
+                to: 0 360 0;
+                loop: true;
+                dur: 15000;
+                easing: linear;
+            "
+
+        >
+
+
+            <!-- EARTH -->
+
+            <a-sphere
+
+                id="earth"
+
+                radius="1.5"
+
+                src="#earthTexture"
+
+                segments-width="64"
+
+                segments-height="64"
+
+            >
+
+            </a-sphere>
+
+        </a-entity>
+
+
+        <!-- EARTH LABEL -->
+
+        <a-text
+
+            value="Earth"
+
+            position="0 2.3 0"
+
+            align="center"
+
+            color="#00ffcc"
+
+            width="8"
+
+            side="double"
+
+        >
+
+        </a-text>
+
+
+        <!--MOON ORBIT SYSTEM-->
+
+        <a-entity
+
+            id="moon-orbit"
+
+            position="0 0 0"
+
+            animation="
+                property: rotation;
+                from: 0 0 0;
+                to: 0 360 0;
+                loop: true;
+                dur: 50000;
+                easing: linear;
+            "
+
+        >
+
+
+            <!-- DISTANCE FROM EARTH -->
+
+            <a-entity
+
+                position="4 0 0"
+
+            >
+
+
+                <!--MOON SELF ROTATION-->
+
+                <a-entity
+
+                    animation="
+                        property: rotation;
+                        from: 0 0 0;
+                        to: 0 360 0;
+                        loop: true;
+                        dur: 8000;
+                        easing: linear;
+                    "
+
+                >
+
+
+                    <!-- MOON -->
+
+                    <a-sphere
+
+                        id="moon"
+
+                        radius="0.45"
+
+                        src="#moonTexture"
+
+                        segments-width="64"
+
+                        segments-height="64"
+
+                    >
+
+                    </a-sphere>
+
+                </a-entity>
+
+
+                <!-- MOON LABEL -->
+
+                <a-text
+
+                    value="Moon"
+
+                    position="0 0.9 0"
+
+                    align="center"
+
+                    color="#ffffff"
+
+                    width="5"
+
+                    side="double"
+
+                >
+
+                </a-text>
+
+            </a-entity>
+
+        </a-entity>
+
+    </a-entity>
+
+</a-scene>
+
+</body>
+
+</html>

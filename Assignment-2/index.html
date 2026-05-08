@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>The Tilting Earth</title>
+
+    <!-- A-Frame -->
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+
+    <a-scene background="color: #111;">
+
+        <!-- TITLE TEXT -->
+
+        <a-text
+            value="The Earth"
+            position="0 6 -5"
+            color="#000"
+            align="center"
+            width="12"
+            side="double"
+            scale="2 2 2">
+        </a-text>
+
+
+        <!-- LIGHTS -->
+
+        <a-light
+            type="ambient"
+            intensity="0.8">
+        </a-light>
+
+        <a-light
+            type="directional"
+            intensity="1.5"
+            position="2 4 3"
+            color="#6b6360">
+        </a-light>
+
+
+        <!-- TILTED EARTH SYSTEM -->
+
+        <a-entity
+            position="0 2.789 -5"
+            rotation="0 0 23.5">
+
+            <!-- EARTH AXIS -->
+
+            <a-cylinder
+                color="#cccccc"
+                height="4"
+                radius="0.04"
+                position="0 0 0"
+                color = #555555>
+            </a-cylinder>
+
+
+            <!-- TOP KNOB -->
+
+            <a-sphere
+                radius="0.12"
+                color="#dddddd"
+                position="0 2 0"
+                color = #555555>
+            </a-sphere>
+
+
+            <!-- BOTTOM BASE -->
+
+            <a-cylinder
+                position="0.036 -1.790 0"
+                rotation="0 0 -24"
+                radius="0.45"
+                height="0.12"
+                color="#555555">
+            </a-cylinder>
+
+
+            <!-- ROTATING EARTH -->
+
+            <a-sphere
+                radius="1.2"
+                position="0 0 0"
+                src="./earth.jpg"
+                animation="
+                    property: rotation;
+                    to: 0 360 0;
+                    loop: true;
+                    dur: 15000;
+                    easing: linear;
+                ">
+            </a-sphere>
+
+        </a-entity>
+
+
+        <!-- CAMERA -->
+
+        <a-entity position="0 1.6 3">
+
+            <a-camera></a-camera>
+
+        </a-entity>
+
+
+        <!-- FLOOR -->
+
+        <a-plane
+            position="0 0 -5"
+            rotation="-90 0 0"
+            width="30"
+            height="30"
+            src="./floor.jpg">
+        </a-plane>
+
+
+        <!-- BACK WALL -->
+
+        <a-plane
+            position="0 6 -15"
+            width="30"
+            height="15"
+            src="./wall.jpg">
+        </a-plane>
+
+
+        <!-- LEFT WALL -->
+
+        <a-plane
+            position="-15 6 -5"
+            rotation="0 90 0"
+            width="30"
+            height="15"
+            src="./wall.jpg">
+        </a-plane>
+
+
+        <!-- RIGHT WALL -->
+
+        <a-plane
+            position="15 6 -5"
+            rotation="0 -90 0"
+            width="30"
+            height="15"
+            src="./wall.jpg">
+        </a-plane>
+
+
+        <!-- TABLE TOP -->
+
+        <a-box
+            position="0 1 -5"
+            width="5"
+            height="0.2"
+            depth="3"
+            color="#d2a679">
+        </a-box>
+
+
+        <!-- TABLE LEGS -->
+
+        <a-box
+            position="-2 0 -6.2"
+            width="0.2"
+            height="2"
+            depth="0.2"
+            color="#c28f5c">
+        </a-box>
+
+        <a-box
+            position="2 0 -6.2"
+            width="0.2"
+            height="2"
+            depth="0.2"
+            color="#c28f5c">
+        </a-box>
+
+        <a-box
+            position="-2 0 -3.8"
+            width="0.2"
+            height="2"
+            depth="0.2"
+            color="#c28f5c">
+        </a-box>
+
+        <a-box
+            position="2 0 -3.8"
+            width="0.2"
+            height="2"
+            depth="0.2"
+            color="#c28f5c">
+        </a-box>
+
+    </a-scene>
+
+</body>
+
+</html>
